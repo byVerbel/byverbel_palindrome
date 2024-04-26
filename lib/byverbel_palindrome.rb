@@ -3,7 +3,7 @@
 require_relative "byverbel_palindrome/version"
 
 # Methods for determining whether a string is a palindrome.
-class String
+module ByverbelPalindrome
   # Returns true for a palindrome, false otherwise.
   def palindrome?
     processed_content == processed_content.reverse
@@ -13,6 +13,14 @@ class String
 
   # Returns content for palindrome testing.
   def processed_content
-    scan(/[a-z]/i).join.downcase
+    to_s.scan(/[a-z0-9]/i).join.downcase
   end
+end
+
+class String
+  include ByverbelPalindrome
+end
+
+class Integer
+  include ByverbelPalindrome
 end

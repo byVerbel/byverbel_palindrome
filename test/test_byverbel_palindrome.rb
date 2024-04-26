@@ -26,4 +26,12 @@ class TestByverbelPalindrome < Minitest::Test
   def test_palindrome_with_punctuation
     assert "Madam, I'm Adam.".palindrome?
   end
+
+  def test_integer_non_palindrome
+    refute 12_345.palindrome?
+  end
+
+  def test_integer_palindrome
+    assert 12_321.palindrome?
+  end
 end
