@@ -6,7 +6,12 @@ require_relative "byverbel_palindrome/version"
 module ByverbelPalindrome
   # Returns true for a palindrome, false otherwise.
   def palindrome?
-    processed_content == processed_content.reverse
+    processed_content == processed_content.reverse && content?
+  end
+
+  # Check if string has zero characters like "" or strings with just spaces " ", "        ", "\n", "\s", "\t", etc...
+  def content?
+    !processed_content.empty?
   end
 
   private
